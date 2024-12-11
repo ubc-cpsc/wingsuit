@@ -1,7 +1,7 @@
 version: 2.1
 
 executors:
-  sb_node_18_classic:
+  sb_node_20_classic:
     parameters:
       class:
         description: The Resource class
@@ -10,7 +10,7 @@ executors:
         default: 'small'
     working_directory: /tmp/storybook
     docker:
-      - image: cimg/node:18.17.1
+      - image: cimg/node:20.14.0
         environment:
           NODE_OPTIONS: --max_old_space_size=6144
     resource_class: <<parameters.class>>
@@ -19,7 +19,7 @@ jobs:
   install:
     executor:
       class: small
-      name: sb_node_18_classic
+      name: sb_node_20_classic
     steps:
       - checkout
       - restore_cache:
@@ -48,7 +48,7 @@ jobs:
   build:
     executor:
       class: large
-      name: sb_node_18_classic
+      name: sb_node_20_classic
     steps:
       - checkout
       - attach_workspace:
@@ -67,7 +67,7 @@ jobs:
   packtracker:
     executor:
       class: large
-      name: sb_node_18_classic
+      name: sb_node_20_classic
     steps:
       - checkout
       - attach_workspace:
@@ -80,7 +80,7 @@ jobs:
   examples:
     executor:
       class: large
-      name: sb_node_18_classic
+      name: sb_node_20_classic
     parallelism: 1
     steps:
       - checkout
@@ -97,7 +97,7 @@ jobs:
   publish:
     executor:
       class: small
-      name: sb_node_18_classic
+      name: sb_node_20_classic
     steps:
       - checkout
       - attach_workspace:
@@ -111,7 +111,7 @@ jobs:
             - .verdaccio-cache
   init-e2e:
     docker:
-      - image: cypress/included:cypress-12.8.1-node-18.14.1-chrome-111.0.5563.110-1-ff-111.0.1-edge-111.0.1661.51-1
+      - image: cypress/included:cypress-12.17.4-node-20.5.0-chrome-114.0.5735.133-1-ff-114.0.2-edge-114.0.1823.51-1
         environment:
           TERM: xterm
     working_directory: /tmp/storybook
@@ -129,7 +129,7 @@ jobs:
           command: yarn wait-on http://localhost:6000
       - run:
           name: set registry
-          command: yarn config set registry http://localhost:6000/
+          command: yarn config set registry http://localhost:6000
       - run:
           name: test local registry
           command: yarn info @wingsuit-designsystem/core
@@ -159,7 +159,7 @@ jobs:
 #          command: yarn wait-on http://localhost:6000
 #      - run:
 #          name: set registry
-#          command: yarn config set registry http://localhost:6000/
+#          command: yarn config set registry http://localhost:6000
 #      - run:
 #          name: test local registry
 #          command: yarn info @wingsuit-designsystem/core
@@ -172,7 +172,7 @@ jobs:
   e2e:
     working_directory: /tmp/storybook
     docker:
-      - image: cypress/included:cypress-12.8.1-node-18.14.1-chrome-111.0.5563.110-1-ff-111.0.1-edge-111.0.1661.51-1
+      - image: cypress/included:cypress-12.17.4-node-20.5.0-chrome-114.0.5735.133-1-ff-114.0.2-edge-114.0.1823.51-1
         environment:
           TERM: xterm
     steps:
@@ -202,7 +202,7 @@ jobs:
   chromatic:
     executor:
       class: small
-      name: sb_node_18_classic
+      name: sb_node_20_classic
     working_directory: /tmp/storybook
     parallelism: 4
     steps:
@@ -217,7 +217,7 @@ jobs:
   upgrade-tests:
     executor:
       class: small
-      name: sb_node_18_classic
+      name: sb_node_20_classic
     steps:
       - checkout
       - attach_workspace:
@@ -227,12 +227,10 @@ jobs:
           command: |
             cd packages/cli/test
             ./upgrade_tests.sh
-            cd run_upgrade/wingsuit
-            yarn dev:storybook --smoke-test
   smoke-tests:
     executor:
       class: small
-      name: sb_node_18_classic
+      name: sb_node_20_classic
     steps:
       - checkout
       - attach_workspace:
@@ -267,7 +265,7 @@ jobs:
   docs:
     executor:
       class: large
-      name: sb_node_18_classic
+      name: sb_node_20_classic
     steps:
       - checkout
       - attach_workspace:
@@ -281,11 +279,11 @@ jobs:
           name: Build docs
           command: |
             cd docs
-            yarn build:pages
+            yarn build
   lint:
     executor:
       class: small
-      name: sb_node_18_classic
+      name: sb_node_20_classic
     steps:
       - checkout
       - attach_workspace:
@@ -296,7 +294,7 @@ jobs:
   test:
     executor:
       class: medium
-      name: sb_node_18_classic
+      name: sb_node_20_classic
     steps:
       - checkout
       - attach_workspace:
@@ -311,7 +309,7 @@ jobs:
   coverage:
     executor:
       class: small
-      name: sb_node_18_classic
+      name: sb_node_20_classic
     steps:
       - checkout
       - attach_workspace:

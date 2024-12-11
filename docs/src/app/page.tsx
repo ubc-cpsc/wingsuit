@@ -14,9 +14,10 @@ import 'organisms/section-code';
 import 'organisms/section';
 // eslint-disable-next-line import/no-unresolved
 import 'templates/page';
-
+// eslint-disable-next-line import/no-unresolved, import/extensions
 import pageTemplate from 'templates/page/page.twig';
 import WingsuitPattern from '@/component/wingsuit-pattern';
+import { Providers } from './providers';
 
 const tokens = require('./tokens.yml');
 const component = require('./component.yml');
@@ -63,10 +64,12 @@ const pattern: IPatternDefinition = {
 
 const storage = getStorage();
 storage.addDefinition('frontpage', pattern);
+
 export default function Page() {
   return (
-    <>
+    <Providers>
+      {/* @ts-expect-error Server Component */}
       <WingsuitPattern patternId="frontpage" />
-    </>
+    </Providers>
   );
 }

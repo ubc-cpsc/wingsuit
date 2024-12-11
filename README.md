@@ -87,9 +87,9 @@ yarn dev:drupal
 ## Running e2e tests
 
 Tab 1
-yarn local-registry --port 6000 --open --publish
+n
 
 Tab 2
 export CIRCLE_BRANCH=release-2-0
-yarn config set registry http://localhost:6000/
+yarn config set registry http://localhost:6000
 yarn test:e2e-framework

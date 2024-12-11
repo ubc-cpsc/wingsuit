@@ -1,6 +1,6 @@
 {
   "name": "@wingsuit-designsystem/preset-pattern",
-  "version": "2.0.0-beta.1",
+  "version": "2.0.0-beta.6",
   "description": "Wingsuit Pattern preset.",
   "repository": {
     "type": "git",
@@ -32,10 +32,10 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "561e222489a6b2fe94efadd6bb8dd31236708425",
+  "gitHead": "2af05ab6838dda293b5fa39b6d7a4e151ec9ce36",
   "dependencies": {
-    "@wingsuit-designsystem/core": "2.0.0-beta.1",
-    "@wingsuit-designsystem/pattern": "2.0.0-beta.1",
+    "@wingsuit-designsystem/core": "2.0.0-beta.6",
+    "@wingsuit-designsystem/pattern": "2.0.0-beta.6",
     "glob": "^8.1.0",
     "loader-utils": "^2.0.0",
     "lodash": "^4.17.21",

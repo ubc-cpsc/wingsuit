@@ -1,21 +1,10 @@
-import { Property, renderer } from '@wingsuit-designsystem/pattern';
-import WingsuitLink from '@/component/wingsuit-link';
-import parse, { domToReact, HTMLReactParserOptions, Element } from 'html-react-parser';
-import Pattern from '@wingsuit-designsystem/pattern/dist/Pattern';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import 'react-tabs/style/react-tabs.css';
+import { renderer } from '@wingsuit-designsystem/pattern';
+import parse, { domToReact, Element, DOMNode } from 'html-react-parser';
 import React from 'react';
+import WingsuitLink from '@/component/wingsuit-link';
+import WingsuitTabView from '@/component/wingsuit-tab-view';
+import WingsuitCode from '@/component/wingsuit-code';
 
-interface Components {
-  [key: string]: React.ComponentClass;
-}
-
-const components: Components = {
-  tab: Tab,
-  tabs: Tabs,
-  'tab-list': TabList,
-};
 export default async function WingsuitPattern({
   children,
   patternId,
@@ -24,39 +13,47 @@ export default async function WingsuitPattern({
 }: {
   children?: React.ReactNode;
   patternId: string;
-  variantId: string;
+  variantId?: string;
   variables?: any;
 }) {
   const markup = await renderer.renderPatternPreview(patternId, variables, variantId);
-  const options: HTMLReactParserOptions = {
+  const options: {
+    replace: (
+      domNode: any
+    ) =>
+      | React.ReactElement<any, string | React.JSXElementConstructor<any>>
+      | string
+      | number
+      | Iterable<React.ReactNode>
+      | React.ReactPortal
+      | boolean
+      | undefined
+      | null;
+  } = {
     replace: (domNode: any) => {
       const domName: string = domNode.name;
       if (domNode instanceof Element && domNode.type === 'tag' && domNode.name === 'maincontent') {
         return children;
       }
+      if (domNode instanceof Element && domNode.type === 'tag' && domName === 'tab-view') {
+        return (
+          <WingsuitTabView variant={domNode.attribs.variant} color={domNode.attribs.color}>
+            {domToReact(domNode.children as DOMNode[], options)}
+          </WingsuitTabView>
+        );
+      }
+      if (domNode instanceof Element && domNode.type === 'tag' && domName === 'snippet') {
+        return <WingsuitCode code={domNode.attribs.code} />;
+      }
       if (domNode instanceof Element && domNode.type === 'tag' && domNode.name === 'a') {
         return (
           <WingsuitLink href={domNode.attribs.href} wingsuitClassName={domNode.attribs.class}>
-            {domToReact(domNode.children)}
+            {domToReact(domNode.children as DOMNode[])}
           </WingsuitLink>
         );
       }
-      if (domNode instanceof Element && domNode.type === 'tag' && domName === 'tab-panel') {
-        return (
-          <TabPanel>
-            <div>DEMO</div>
-          </TabPanel>
-        );
-      }
-      if (domNode instanceof Element && domNode.type === 'tag' && components[domName]) {
-        return React.createElement(components[domName], {}, domToReact(domNode.children, options));
-      }
-      return domNode;
+      return null;
     },
   };
   return <>{parse(markup, options)}</>;
 }
-
-WingsuitPattern.defaultProps = {
-  variantId: Pattern.DEFAULT_VARIANT_NAME,
-};

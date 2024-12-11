@@ -1,44 +1,40 @@
-const postCss = require('postcss');
-
 export default {
   framework: {
-    name: '@storybook/react-webpack5',
+    name: '@wingsuit-designsystem/storybook',
     options: {
+      appName: 'storybook',
       builder: {
-        /** This don't work */
-        lazyCompilation: false,
-        fsCache: true,
+        fsCache: false,
       },
     },
   },
-  typescript: { reactDocgen: false },
-  docs: {
-    autodocs: 'tag',
-    defaultName: 'Docs',
-  },
-  stories: [
-    './patterns/00-foundations/**/*.mdx',
-    '../../source/default/patterns/**/*.stories.wingsuit.jsx',
-    '../../source/default/patterns/**/*.stories.jsx',
-    './patterns/**/*.stories.wingsuit.jsx',
-    './patterns/**/*.stories.jsx',
-  ],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     {
-      name: '@storybook/addon-styling',
+      name: '@storybook/addon-styling-webpack',
       options: {
-        postCss: {
-          implementation: postCss,
-        },
-      },
-    },
-    'storybook-addon-theme-provider',
-    {
-      name: '@wingsuit-designsystem/storybook',
-      options: {
-        appName: 'storybook',
+        rules: [
+          {
+            test: /\.css$/,
+            sideEffects: true,
+            use: [
+              require.resolve('style-loader'),
+              {
+                loader: require.resolve('css-loader'),
+                options: {
+                  importLoaders: 1,
+                },
+              },
+              {
+                loader: require.resolve('postcss-loader'),
+                options: {
+                  implementation: require.resolve('postcss'),
+                },
+              },
+            ],
+          },
+        ],
       },
     },
   ],

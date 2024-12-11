@@ -6,10 +6,10 @@ import Mdx from './index.mdx';
 // eslint-disable-next-line import/no-unresolved
 import 'organisms/next-links';
 
-const next: NextLink = [
+const next: NextLink[] = [
   {
-    title: 'Configure your app?',
-    text: 'Check the parameters under the "App details" section and extend your wingsuit.config.js',
+    title: 'Configure Wingsuit?',
+    text: 'Check the wingsuit.config.js',
     link_title: 'Details',
     href: '/configurations/details',
   },
@@ -23,6 +23,7 @@ export default function Page() {
   return (
     <>
       <Mdx />
+      {/* @ts-expect-error Server Component */}
       <WingsuitPattern patternId="next_links" variables={{ items: next }} />
     </>
   );

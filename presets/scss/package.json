@@ -1,6 +1,6 @@
 {
   "name": "@wingsuit-designsystem/preset-scss",
-  "version": "2.0.0-beta.1",
+  "version": "2.0.0-beta.6",
   "description": "Wingsuit SCSS preset.",
   "repository": {
     "type": "git",
@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/wingsuit-designsystem/wingsuit/tools#readme",
   "dependencies": {
-    "@wingsuit-designsystem/core": "2.0.0-beta.1",
+    "@wingsuit-designsystem/core": "2.0.0-beta.6",
     "glob": "^9.3.2",
     "mini-css-extract-plugin": "^2.7.5",
     "optimize-css-assets-webpack-plugin": "^6.0.1",
@@ -43,5 +43,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "561e222489a6b2fe94efadd6bb8dd31236708425"
+  "gitHead": "2af05ab6838dda293b5fa39b6d7a4e151ec9ce36"
 }
