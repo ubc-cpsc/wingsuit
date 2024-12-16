@@ -9,6 +9,7 @@ module.exports = {
   },
   apps: {
     nextjs: {
+
       type: 'nextjs',
       presets: [
         getDefaultPreset('assets'),

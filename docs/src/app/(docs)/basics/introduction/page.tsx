@@ -2,6 +2,7 @@
 import { NextLink } from '@/app/(docs)/layout';
 // eslint-disable-next-line import/no-unresolved
 import WingsuitPattern from '@/component/wingsuit-pattern';
+import './images/add-blocks.png';
 import Mdx from './index.mdx';
 // eslint-disable-next-line import/no-unresolved
 import 'organisms/next-links';

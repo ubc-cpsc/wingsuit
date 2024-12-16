@@ -7,7 +7,7 @@ After login navigate to [layout builder](http://demo.wingsuit.dev.key-tec.de/en/
 
 ## Prerequisites
 [Wingsuit Kickstarter](https://github.com/wingsuit-designsystem/wingsuit_kickstarter) is the fastest way to start with Wingsuit.
-The Kickstarter uses UI Patterns to map Patterns to Drupal and [Acquia Blt](https://github.com/acquia/blt) for automation.
+The Kickstarter uses UI Patterns to map Patterns to Drupal.
 
 - [Node `^12`](https://nodejs.org)
 - [YARN `^1.22`](https://classic.yarnpkg.com/)
@@ -24,7 +24,7 @@ ddev config --project-type=drupal10 --docroot=docroot --create-docroot --databas
 ```
 #### Install the project
 ```bash
-ddev composer create wingsuit-designsystem/wingsuit-kickstarter:d11-dev --stability dev --no-interaction
+ddev composer create wingsuit-designsystem/wingsuit-kickstarter --stability dev --no-interaction
 ddev init
 ```
 
@@ -51,7 +51,7 @@ Click on `configure` in a section to see all settings you find in storybook.
 
 ## Development
 The kickstarter installs Wingsuit under `docroot/themes/custom` and generates all templates with `yarn ws build drupal` to
-`docroot/themes/custom/wingsuit/dist/app-drupal` (check `blt/blt.yml` to see the build process).
+`docroot/themes/custom/wingsuit/dist/app-drupal`.
 
 You can run webpack in watch mode with `yarn ws dev drupal`. (If your changes don't appear, you probably forgot to start `yarn ws dev drupal`).
 
