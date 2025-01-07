@@ -30,7 +30,7 @@
     "@wingsuit-designsystem/core": "2.0.1",
     "fs-extra": "^9.0.0",
     "json-diff": "^0.7.1",
-    "tailwindcss": "^3.2.7"
+    "tailwindcss": "^3.2.7 || >= 4.0.0-alpha.20"
   },
   "scripts": {
     "prepare": "node ../../scripts/prepare.js"
