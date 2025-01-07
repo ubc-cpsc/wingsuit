@@ -1,6 +1,6 @@
 {
   "name": "@wingsuit-designsystem/preset-twing",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Wingsuit Twing preset.",
   "repository": {
     "type": "git",
@@ -32,10 +32,10 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "8ba16fa94749bccf6b1a87e3721b622a3b83a91e",
+  "gitHead": "adc2beecb372328b95009a30fd2801ce5862aeb2",
   "dependencies": {
-    "@wingsuit-designsystem/core": "2.0.2",
-    "@wingsuit-designsystem/pattern": "2.0.2",
+    "@wingsuit-designsystem/core": "2.0.3",
+    "@wingsuit-designsystem/pattern": "2.0.3",
     "twing": "^5.1.0",
     "twing-drupal-filters": "^0.0.2",
     "twing-loader": "^4.0.0"

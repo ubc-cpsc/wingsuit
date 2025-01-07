@@ -1,6 +1,6 @@
 {
   "name": "@wingsuit-designsystem/preset-drupal",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Wingsuit Drupal preset.",
   "repository": {
     "type": "git",
@@ -30,11 +30,11 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "8ba16fa94749bccf6b1a87e3721b622a3b83a91e",
+  "gitHead": "adc2beecb372328b95009a30fd2801ce5862aeb2",
   "dependencies": {
-    "@wingsuit-designsystem/core": "2.0.2",
-    "@wingsuit-designsystem/preset-pattern": "2.0.2",
-    "@wingsuit-designsystem/storybook": "2.0.2",
+    "@wingsuit-designsystem/core": "2.0.3",
+    "@wingsuit-designsystem/preset-pattern": "2.0.3",
+    "@wingsuit-designsystem/storybook": "2.0.3",
     "glob": "^8.1.0",
     "path": "^0.12.7",
     "webpack": "^5.56.1"

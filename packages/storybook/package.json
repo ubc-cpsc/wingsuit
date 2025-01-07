@@ -1,6 +1,6 @@
 {
   "name": "@wingsuit-designsystem/storybook",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Wingsuit Storybook Integration.",
   "repository": {
     "type": "git",
@@ -46,8 +46,8 @@
     "@storybook/theming": "^8.1.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "@wingsuit-designsystem/core": "2.0.2",
-    "@wingsuit-designsystem/pattern": "2.0.2",
+    "@wingsuit-designsystem/core": "2.0.3",
+    "@wingsuit-designsystem/pattern": "2.0.3",
     "babel-traverse": "^7.0.0-beta.3",
     "babylon": "^6.18.0",
     "lodash": "^4.17.21",
@@ -62,5 +62,5 @@
   "scripts": {
     "prepare": "node ../../scripts/prepare.js"
   },
-  "gitHead": "8ba16fa94749bccf6b1a87e3721b622a3b83a91e"
+  "gitHead": "adc2beecb372328b95009a30fd2801ce5862aeb2"
 }

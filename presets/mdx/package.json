@@ -1,6 +1,6 @@
 {
   "name": "@wingsuit-designsystem/preset-mdx",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Wingsuit Mdx support.",
   "repository": {
     "type": "git",
@@ -28,7 +28,7 @@
   "homepage": "https://github.com/wingsuit-designsystem/wingsuit/tools#readme",
   "dependencies": {
     "@mdx-js/loader": "^3.0.1",
-    "@wingsuit-designsystem/core": "2.0.2",
+    "@wingsuit-designsystem/core": "2.0.3",
     "remark-prism": "^1.3.6"
   },
   "scripts": {
@@ -37,5 +37,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "8ba16fa94749bccf6b1a87e3721b622a3b83a91e"
+  "gitHead": "adc2beecb372328b95009a30fd2801ce5862aeb2"
 }
