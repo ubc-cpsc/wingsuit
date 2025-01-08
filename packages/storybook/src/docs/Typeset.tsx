@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+// eslint-disable-next-line import/named
 import { styled } from '@storybook/theming';
 import { transparentize } from 'polished';
 

@@ -78,16 +78,17 @@
   "devDependencies": {
     "@babel/cli": "^7.24.6",
     "@babel/core": "^7.24.6",
+    "@babel/plugin-proposal-decorators": "^7.23.2",
+    "@babel/plugin-proposal-export-default-from": "^7.22.17",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/plugin-transform-modules-commonjs": "^7.21.2",
     "@babel/plugin-transform-react-constant-elements": "^7.21.3",
     "@babel/plugin-transform-runtime": "^7.21.4",
-    "@babel/plugin-proposal-decorators": "^7.23.2",
-    "@babel/plugin-proposal-export-default-from": "^7.22.17",
     "@babel/preset-env": "^7.21.4",
     "@babel/preset-react": "^7.18.6",
     "@babel/preset-typescript": "^7.21.4",
     "@babel/runtime": "^7.21.0",
+    "@cfaester/enzyme-adapter-react-18": "^0.7.1",
     "@emotion/babel-plugin": "^11.10.6",
     "@emotion/jest": "^11.10.5",
     "@nrwl/workspace": "^16.7.4",
@@ -106,7 +107,6 @@
     "downlevel-dts": "^0.4.0",
     "enquirer": "^2.3.5",
     "enzyme": "^3.9.0",
-    "@cfaester/enzyme-adapter-react-18": "^0.7.1",
     "eslint": "^8.57.0",
     "eslint-plugin-cypress": "^2.13.2",
     "eslint-plugin-react": "^7.32.2",
@@ -144,5 +144,8 @@
     "typescript": "^4.5.4",
     "wait-on": "^4.0.0",
     "window-size": "^1.1.1"
+  },
+  "dependencies": {
+    "@babel/preset-flow": "^7.25.9"
   }
 }

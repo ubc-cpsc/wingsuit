@@ -1,7 +1,9 @@
 slider:
   use: "@organisms/slider/slider.twig"
   label: Slider
-  extends:
+  dependencies:
+    - banner
+    - button
   icon_path: ws-assets://images/slider-icon.svg
   description: Javascript slider with splide (https://splidejs.com/).
     Change the slider behavior in slider.behavior.js.

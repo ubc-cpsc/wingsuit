@@ -5,6 +5,7 @@ section:
   dependencies:
     - grid
     - container
+    - banner
   extends:
     - grid.settings
     - container.settings

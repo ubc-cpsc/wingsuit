@@ -36,6 +36,7 @@
     "@babel/generator": "^7.21.2",
     "@storybook/addon-controls": "^8.1.0",
     "@storybook/addon-docs": "^8.1.0",
+    "@storybook/core": "^8.1.0",
     "@storybook/builder-webpack5": "^8.1.0",
     "@storybook/components": "^8.1.0",
     "@storybook/csf-tools": "^8.1.0",

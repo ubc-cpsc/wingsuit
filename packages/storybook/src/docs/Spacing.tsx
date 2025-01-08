@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { ScrollArea } from '@storybook/components';
+import { ScrollArea } from '@storybook/core/components';
 
 interface SpacingProps {
   spacing: any;

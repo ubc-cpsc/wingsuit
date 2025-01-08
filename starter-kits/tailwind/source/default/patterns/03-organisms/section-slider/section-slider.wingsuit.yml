@@ -4,6 +4,7 @@ section_slider:
   dependencies:
     - container
     - slider
+    - grid
   extends:
     - container.settings
     - slider.settings
