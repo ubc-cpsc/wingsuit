@@ -64,19 +64,6 @@ jobs:
             - starter-kits
             - examples
             - .cache
-  packtracker:
-    executor:
-      class: large
-      name: sb_node_20_classic
-    steps:
-      - checkout
-      - attach_workspace:
-          at: .
-      - run:
-          name: Report webpack stats for manager of official storybook
-          command: |
-            cd examples/official-wingsuit
-            yarn packtracker
   examples:
     executor:
       class: large
