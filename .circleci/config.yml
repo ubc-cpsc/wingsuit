@@ -324,9 +324,6 @@ workflows:
       - smoke-tests:
           requires:
             - build
-      - packtracker:
-          requires:
-            - build
       - upgrade-tests:
           requires:
             - build
