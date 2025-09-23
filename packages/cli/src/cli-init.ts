@@ -5,7 +5,6 @@ import { hasYarn } from './has_yarn';
 const logger = console;
 
 const { spawnSync } = require('child_process');
-const clone = require('git-clone');
 const fs = require('fs');
 const mv = require('mv');
 const rimraf = require('rimraf');
@@ -103,10 +102,21 @@ export default (options) => {
     );
   };
   logger.log('Cloning Wingsuit repo ...');
-  clone(
-    'https://github.com/wingsuit-designsystem/wingsuit',
-    npmOptions.gitFolder,
-    cmdOptions,
-    setupWingsuit
+  if (!fs.existsSync(npmOptions.checkoutFolder)) {
+    fs.mkdirSync(npmOptions.checkoutFolder, { recursive: true });
+  }
+  if (fs.existsSync(npmOptions.gitFolder)) {
+    rimraf.sync(npmOptions.gitFolder);
+  }
+  const cloneResult = spawnSync(
+    'git',
+    ['clone', 'https://github.com/wingsuit-designsystem/wingsuit', tmpCheckoutFolder],
+    cmdOptions
   );
+  if (cloneResult.status !== 0) {
+    const exitCode = typeof cloneResult.status === 'number' ? cloneResult.status : 1;
+    logger.error('Failed to clone Wingsuit repository.');
+    process.exit(exitCode);
+  }
+  setupWingsuit();
 };
