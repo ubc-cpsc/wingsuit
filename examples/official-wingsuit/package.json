@@ -70,7 +70,7 @@
     "storybook-addon-themes": "^6.1.0",
     "stylelint-scss": "^3.17.2",
     "webpack": "^5.56.1",
-    "yo": "^3.1.1"
+    "yo": "^5.1.0"
   },
   "dependencies": {
     "alpinejs": "^1.10.1",
