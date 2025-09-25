@@ -65,6 +65,7 @@
     "storybook": "^8.1.0"
   },
   "resolutions": {
-    "jackspeak": "2.1.1"
+    "jackspeak": "2.1.1",
+    "yeoman-environment": "3.19.3"
   }
 }
