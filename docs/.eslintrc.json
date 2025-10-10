@@ -1,10 +1,15 @@
 {
-  "root": true,
-  "extends": ["next/core-web-vitals"],
+  "extends": "next/core-web-vitals",
   "ignorePatterns": ["tailwind.config.ts"],
-  "settings": {
-    "next": {
-      "rootDir": ["./"]
-    }
+  "rules": {
+    "@typescript-eslint/ban-types": [
+      "error",
+      {
+        "extendDefaults": true,
+        "types": {
+          "{}": false
+        }
+      }
+    ]
   }
 }

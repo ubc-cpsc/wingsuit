@@ -1,6 +1,6 @@
 import { AppConfig } from '@wingsuit-designsystem/core';
 
-const rehypeShiki = require('@shikijs/rehype').default;
+const remarkPrism = require('remark-prism');
 
 interface MdxConfig {
   remarkOptions: {
@@ -35,8 +35,7 @@ export function webpack(appConfig: AppConfig, mdxConfig: MdxConfig) {
             {
               loader: '@mdx-js/loader',
               options: {
-                remarkPlugins: [],
-                rehypePlugins: [[rehypeShiki, { theme: 'github-dark' }]],
+                remarkPlugins: [[remarkPrism]],
               },
             },
           ],
