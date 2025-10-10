@@ -1,6 +1,6 @@
 {
   "name": "@wingsuit-designsystem/preset-mdx",
-  "version": "2.0.4",
+  "version": "2.1.0",
   "description": "Wingsuit Mdx support.",
   "repository": {
     "type": "git",
@@ -29,7 +29,7 @@
   "dependencies": {
     "@mdx-js/loader": "^3.0.1",
     "@shikijs/rehype": "^1.6.1",
-    "@wingsuit-designsystem/core": "2.0.4",
+    "@wingsuit-designsystem/core": "2.1.0",
     "shiki": "^1.6.1"
   },
   "scripts": {
